@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonWarmup-1", "PythonCodingBat\PythonWarmup-1.pyproj", "{D648E2DC-E8E5-4BDA-905B-9B56E8BAE91F}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonWarmup-2", "PythonWarmup-2\PythonWarmup-2.pyproj", "{7FA67B1B-FC69-4C08-8E3C-911B5CA1B9A8}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonArray-1", "PythonArray-1\PythonArray-1.pyproj", "{47B0B675-AC29-4AA7-971B-42541AE1E903}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonString-1", "PythonString-1\PythonString-1.pyproj", "{356E09EB-BC67-4EFF-A321-85255B3B09DA}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonLogic-1", "PythonLogic-1\PythonLogic-1.pyproj", "{A9E11FAE-E4CE-4449-BB37-C713923AA0E3}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonAP-1", "PythonAP-1\PythonAP-1.pyproj", "{9C81DD8F-CFA6-4715-9C7E-9E16480C8B09}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonInterview-1", "PythonInterview-1\PythonInterview-1.pyproj", "{EEB729F2-CC95-407F-87F0-A7420916F33E}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonRecursion-1", "PythonRecursion-1\PythonRecursion-1.pyproj", "{9F527905-A4F3-4881-866E-8B73213CFA70}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D648E2DC-E8E5-4BDA-905B-9B56E8BAE91F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D648E2DC-E8E5-4BDA-905B-9B56E8BAE91F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FA67B1B-FC69-4C08-8E3C-911B5CA1B9A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FA67B1B-FC69-4C08-8E3C-911B5CA1B9A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47B0B675-AC29-4AA7-971B-42541AE1E903}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47B0B675-AC29-4AA7-971B-42541AE1E903}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{356E09EB-BC67-4EFF-A321-85255B3B09DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{356E09EB-BC67-4EFF-A321-85255B3B09DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9E11FAE-E4CE-4449-BB37-C713923AA0E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9E11FAE-E4CE-4449-BB37-C713923AA0E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C81DD8F-CFA6-4715-9C7E-9E16480C8B09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C81DD8F-CFA6-4715-9C7E-9E16480C8B09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEB729F2-CC95-407F-87F0-A7420916F33E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEB729F2-CC95-407F-87F0-A7420916F33E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F527905-A4F3-4881-866E-8B73213CFA70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F527905-A4F3-4881-866E-8B73213CFA70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

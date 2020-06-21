@@ -2,120 +2,113 @@ import sys
 
 class PythonInterview_1(object):
 
-        /*
-        Console.WriteLine("isPalindrome");
-        Console.WriteLine("Is it a palindrome ignoring punctuation and case.");
-        Console.WriteLine(isPalindrome("A man, a plan, a canal: panama!") == true);
-        */
-        public static bool isPalindrome(string word)
-        {
-            StringBuilder sb = new StringBuilder();
-
-            foreach (char c in word)
-            {
-                if (char.IsLetterOrDigit(c))
-                    sb.Append(char.ToLower(c));
-            }
+        '''
+        print("isPalindrome")
+        print("Is it a palindrome ignoring punctuation and case.")
+        print(isPalindrome("A man, a plan, a canal: panama!") == True)
+        '''
+        def isPalindrome(string word):
+            sb = ""
+            for char c in word:
+                if char.IsLetterOrDigit(c):
+                    sb += (char.ToLower(c))
             
-            for (int i = 0; i < sb.Length / 2; i++)
-                if (sb[i] != sb[sb.Length - 1 - i])
-                    return false;
+            for (int i = 0 i < len(sb) / 2 i++):
+                if sb[i] != sb[len(sb) - 1 - i]:
+                    return False
 
-            return true;
-        }
+            return True
+        
 
-        /*
-        Console.WriteLine("isPalindrome");
-        Console.WriteLine("Is it a palindrome ignoring punctuation and case.");
-        Console.WriteLine(isPalindromeLinq("A man, a plan, a canal: panama!") == true);
+        '''
+        print("isPalindrome")
+        print("Is it a palindrome ignoring punctuation and case.")
+        print(isPalindromeLinq("A man, a plan, a canal: panama!") == True)
         Use Linq. Do not use loops.
-        */
-        public static bool isPalindromeLinq(string word)
-        {
+        '''
+        def isPalindromeLinq(string word)
             char[] chars = word.ToLower().Trim()
                     .Where(c => Char.IsLetterOrDigit(c))
-                    .ToArray();
+                    .ToArray()
 
-            return chars.SequenceEqual(chars.Reverse());
-        }
+            return chars.SequenceEqual(chars.Reverse())
+        
 
-        /*
-        Console.WriteLine("countLetters");
-        Console.WriteLine("Count times each letter appears in string");
-        Console.WriteLine(countLetters("The quick brown fox jumped over the lazy dogs."));
-        */
-        public static string countLetters(String sentence)
-        {
-            Dictionary<char, int> counts  =  new Dictionary<char, int>();
+        '''
+        print("countLetters")
+        print("Count times each letter appears in string")
+        print(countLetters("The quick brown fox jumped over the lazy dogs."))
+        '''
+        def countLetters(String sentence):
+            Dictionary<char, int> counts  =  new Dictionary<char, int>()
 
-            foreach (char ch in sentence)
-            {
-                if (char.IsLetterOrDigit(ch))
-                {
-                    char c = char.ToLower(ch);
+            for char ch in sentence:
+                if char.IsLetterOrDigit(ch):
+                
+                    char c = char.ToLower(ch)
 
-                    if (counts.ContainsKey(c))
-                        counts[c]++;
-                    else
-                        counts.Add(c, 1);
-                }
-            }
+                    if counts.ContainsKey(c):
+                        counts[c]++
+                    else:
+                        counts.Add(c, 1)
+                
+            
 
-            StringBuilder sb = new StringBuilder();
+            sb = ""
 
-            var list = counts.Keys.ToList();
-            list.Sort();
+            var list = counts.Keys.ToList()
+            list.Sort()
 
-            foreach (var key in list)
-                sb.AppendLine(key + " : " + counts[key]);
+            for var key in list)
+                sb += Line(key + " : " + counts[key])
 
-            return sb.ToString();
-        }
+            return sb
+        
 
-        /*
-        Console.WriteLine("countWords");
-        Console.WriteLine("Count times each word appears in string");
-        Console.WriteLine(countWords("This is fun and this is easy"));
-        */
-        public static string countWords(String sentence)
-        {
-            Dictionary<string, int> counts = new Dictionary<string, int>();
-            string[] rawlist = sentence.ToLower().Trim().Split();
-            /*
+        '''
+        print("countWords")
+        print("Count times each word appears in string")
+        print(countWords("This is fun and this is easy"))
+        '''
+        def countWords(String sentence):
+        
+            Dictionary<string, int> counts = new Dictionary<string, int>()
+            string[] rawlist = sentence.ToLower().Trim().Split()
+            '''
             var rawlist = sentence
                           .ToLower().Trim().Split()
                           .Select(word => word.Trim())
-                          .Where(word => !string.IsNullOrEmpty(word));
-            */
-            foreach (string word in rawlist)
-            {
-                if (counts.ContainsKey(word))
-                    counts[word]++;
-                else
-                    counts.Add(word, 1);
-            }
+                          .Where(word => !string.IsNullOrEmpty(word))
+            '''
+            for string word in rawlist:
+            
+                if counts.ContainsKey(word):
+                    counts[word]++
+                else:
+                    counts.Add(word, 1)
+            
 
-            StringBuilder sb = new StringBuilder();
+            sb = ""
 
-            var list = counts.Keys.ToList();
-            list.Sort();
+            var list = counts.Keys.ToList()
+            list.Sort()
 
-            foreach (var key in list)
-                sb.AppendLine(key + " : " + counts[key]);
+            for var key in list:
+                sb += Line(key + " : " + counts[key])
 
-            return sb.ToString();
+            return sb
 
-        }
+        
 
 
-            Console.WriteLine("isPalindrome");
-            Console.WriteLine(isPalindrome("A man, a plan, a canal: Panama!") == true);
+            print("isPalindrome")
+            print(isPalindrome("A man, a plan, a canal: Panama!") == True)
 
-            Console.WriteLine("isPalindromeLinq");
-            Console.WriteLine(isPalindromeLinq("A man, a plan, a canal: Panama!") == true);
+            print("isPalindromeLinq")
+            print(isPalindromeLinq("A man, a plan, a canal: Panama!") == True)
 
-            Console.WriteLine("countLetters");
-            Console.WriteLine(countLetters("The quick brown fox jumped over the lazy dogs."));
+            print("countLetters")
+            print(countLetters("The quick brown fox jumped over the lazy dogs."))
 
-            Console.WriteLine("countWords");
-            Console.WriteLine(countWords("This is fun and this is easy"));
+            print("countWords")
+            print(countWords("This is fun and this is easy"))
