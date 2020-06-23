@@ -1,6 +1,6 @@
 import sys
 
-class PythonRecursion_1(object:
+class PythonRecursion_1(object):
         '''
         Given n of 1 or more, return the factorial of n, which is n * (n-1) * (n-2) ... 1. 
         Compute the result recursively (without loops). 
@@ -9,14 +9,13 @@ class PythonRecursion_1(object:
         factorial(2) -> 2
         factorial(3) -> 6
         '''
-        def factorial(int n)
-        
+        def factorial(n):
             if n == 0:
                 return 0
             elif n == 1:
                 return 1
             else:
-                return n * factorial(n - 1)
+                return n * factorial(n-1)
         
 
         '''        
@@ -27,13 +26,13 @@ class PythonRecursion_1(object:
         bunnyEars(1) -> 2
         bunnyEars(2) -> 4
         '''
-        def bunnyEars(int bunnies):
+        def bunnyEars(bunnies):
             if bunnies == 0:
                 return 0
             elif bunnies == 1:
                 return 2
             else:
-                return 2 + bunnyEars(bunnies - 1)
+                return 2 + bunnyEars(bunnies-1)
 
         
 
@@ -48,15 +47,15 @@ class PythonRecursion_1(object:
         fibonacci(1) -> 1
         fibonacci(2) -> 1
         '''
-        def fibonacci(int n):
-            if n == 0):
+        def fibonacci(n):
+            if n == 0:
                 return 0
             elif n == 1:
                 return 1
             elif n == 2:
                 return 1
             else:
-                return fibonacci(n - 1) + fibonacci(n - 2)
+                return fibonacci(n-1) + fibonacci(n-2)
         
 
         '''        
@@ -69,13 +68,13 @@ class PythonRecursion_1(object:
         bunnyEars2(1) -> 2
         bunnyEars2(2) -> 5
         '''
-        def bunnyEars2(int bunnies):
+        def bunnyEars2(bunnies):
             if bunnies == 0:
                 return 0
             elif bunnies == 1:
                 return 2
             else:
-                return 3 - bunnies % 2 + bunnyEars(bunnies - 1)
+                return 3 - bunnies%2 + bunnyEars(bunnies-1)
         
 
         '''
@@ -87,48 +86,48 @@ class PythonRecursion_1(object:
         triangle(1) -> 1
         triangle(2) -> 3
         '''
-        def triangle(int rows):
+        def triangle(rows):
             if rows == 0:
                 return 0
             elif rows == 1:
                 return 1
             else:
-                return rows + triangle(rows - 1)
+                return rows + triangle(rows-1)
         
 
         '''        
-        Given a non-negative int n, return the sum of its digits recursively (no loops).
+        Given a non-negative n, return the sum of its digits recursively (no loops).
 
         sumDigits(126) -> 9
         sumDigits(49) -> 13
         sumDigits(12) -> 3
 '''
-        def sumDigits(int n):
+        def sumDigits(n):
             if n == 0:
                 return 0
             else:
-                return n % 10 + sumDigits(n / 10)
+                return n%10 + sumDigits(n/10)
         
 
         '''        
-        Given a non-negative int n, return the count of the occurrences of 7 as a digit, so for 
+        Given a non-negative n, return the count of the occurrences of 7 as a digit, so for 
         example 717 yields 2. (no loops). 
 
         count7(717) -> 2
         count7(7) -> 1
         count7(123) -> 0
         '''
-        def count7(int n):
-            if n == 0)
+        def count7(n):
+            if n == 0:
                 return 0
-            elif n % 10 == 7)
-                return 1 + count7(n / 10)
-            else
-                return count7(n / 10)
+            elif n % 10 == 7:
+                return 1 + count7(n/10)
+            else:
+                return count7(n/10)
         
 
         '''        
-        Given a non-negative int n, compute recursively (no loops) the count of the occurrences 
+        Given a non-negative n, compute recursively (no loops) the count of the occurrences 
         of 8 as a digit, except that an 8 with another 8 immediately to its left counts double, 
         so 8818 yields 4. 
 
@@ -136,11 +135,11 @@ class PythonRecursion_1(object:
         count8(818) -> 2
         count8(8818) -> 4
         '''
-        def count8(int n):
+        def count8(n):
             if n == 0:
                 return 0
             elif n % 10 == 8:
-                if n / 10) % 10 == 8:
+                if (n / 10) % 10 == 8:
                     return 2 + count8(n / 10)
                 else:
                     return 1 + count8(n / 10)
@@ -157,13 +156,13 @@ class PythonRecursion_1(object:
         powerN(3, 2) -> 9
         powerN(3, 3) -> 27
         '''
-        def powerN(int baseNum, int pow):
+        def powerN(baseNum, pow):
             if pow == 0:
                 return 1
             elif pow == 1:
                 return baseNum
             else:
-                return baseNum * powerN(baseNum, pow - 1)
+                return baseNum * powerN(baseNum, pow-1)
         
 
 
@@ -175,13 +174,13 @@ class PythonRecursion_1(object:
         countX("hi") -> 0
 
             '''
-        def countX(string str):
+        def countX(str):
             if len(str) == 0:
                 return 0
             elif str[0] == 'x':
-                return 1 + countX(str.Substring(1))
+                return 1 + countX(str[1:])
             else:
-                return countX(str.Substring(1))
+                return countX(str[1:])
         
 
 
@@ -193,13 +192,13 @@ class PythonRecursion_1(object:
         countHi("xhixhix") -> 2
         countHi("hi") -> 1
         '''
-        def countHi(string str):
+        def countHi(str):
             if len(str) < 2:
                 return 0
-            elif str.Substring(0, 2).Equals("hi")):
-                return 1 + countHi(str.Substring(1))
+            elif str[:2] == "hi":
+                return 1 + countHi(str[1:])
             else:
-                return countHi(str.Substring(1))
+                return countHi(str[1:])
         
 
         '''
@@ -210,13 +209,13 @@ class PythonRecursion_1(object:
         changeXY("xxhixx") -> "yyhiyy"
         changeXY("xhixhix") -> "yhiyhiy"
         '''
-        def changeXY(string str):
+        def changeXY(str):
             if len(str) == 0:
                 return ""
             elif str[0] == 'x':
-                return "y" + changeXY(str.Substring(1))
+                return "y" + changeXY(str[1:])
             else:
-                return str[0] + changeXY(str.Substring(1))
+                return str[0] + changeXY(str[1:])
 
         
 
@@ -228,13 +227,13 @@ class PythonRecursion_1(object:
         changePi("pipi") -> "3.143.14"
         changePi("pip") -> "3.14p"
         '''
-        def changePi(string str):
+        def changePi(str):
             if len(str) < 2:
                 return str
-            elif str.Substring(0, 2).Equals("pi")):
-                return "3.14" + changePi(str.Substring(2))
+            elif str.Substring(0, 2).Equals("pi"):
+                return "3.14" + changePi(str[2:])
             else:
-                return str.Substring(0,1) + changePi(str.Substring(1))
+                return str[:1] + changePi(str[1:])
         
 
         '''        
@@ -244,13 +243,13 @@ class PythonRecursion_1(object:
         noX("abc") -> "abc"
         noX("xx") -> ""
         '''
-        def noX(string str):
+        def noX(str):
             if len(str) < 1:
                 return str
             elif str[0] == 'x':
-                return noX(str.Substring(1))
+                return noX(str[1:])
             else:
-                return str[0] + noX(str.Substring(1))
+                return str[0] + noX(str[1:])
         
 
         '''
@@ -259,19 +258,19 @@ class PythonRecursion_1(object:
         In this way, a recursive call can pass index+1 to move down the array. The initial 
         call will pass in index as 0. 
 
-        array6(1, 6, 4, 0) -> true
-        array6(1, 4, 0) -> false
-        array6(6, 0) -> true
+        array6(1, 6, 4, 0) -> True
+        array6(1, 4, 0) -> False
+        array6(6, 0) -> True
         '''
-        def bool array6(int[] nums, int index)
-            if nums.Length == 0:
-                return false
-            elif nums.Length <= index:
-                return false
+        def array6(nums, index):
+            if len(nums) == 0:
+                return False
+            elif len(nums) <= index:
+                return False
             elif nums[index] == 6:
-                return true
+                return True
             else:
-                return array6(nums, index + 1)
+                return array6(nums, index+1)
         
 
         '''
@@ -284,8 +283,8 @@ class PythonRecursion_1(object:
         array11(11, 11, 0) -> 2
         array11(1, 2, 3, 4, 0) -> 0
         '''
-        def array11(int[] nums, int index):
-            if nums.Length == 0 || nums.Length <= index:
+        def array11(nums, index):
+            if len(nums) == 0 or len(nums) <= index:
                 return 0
             elif nums[index] == 11:
                 return 1 + array11(nums, index + 1)
@@ -299,15 +298,15 @@ class PythonRecursion_1(object:
         the array that begins at the given index. In this way, a recursive call can pass index+1 to 
         move down the array. The initial call will pass in index as 0. 
 
-        array220(1, 2, 20, 0) -> true
-        array220(3, 30, 0) -> true
-        array220(3, 0) -> false
+        array220(1, 2, 20, 0) -> True
+        array220(3, 30, 0) -> True
+        array220(3, 0) -> False
         '''
-        def bool array220(int[] nums, int index):
-            if nums.Length < 2:
-                return false
+        def array220(nums, index):
+            if len(nums) < 2:
+                return False
             elif nums[index] * 10 == nums[index + 1]:
-                return true
+                return True
             else:
                 return array220(nums, index + 1)
         
@@ -321,11 +320,11 @@ class PythonRecursion_1(object:
         allStar("ab") -> "a*b"
         '''
 
-        def allStar(string str):
-            if string.IsNullOrEmpty(str) || len(str) == 1:
+        def allStar(str):
+            if string.IsNullOrEmpty(str) or len(str) == 1:
                 return str
             else:
-                return str[0] + "*" + allStar(str.Substring(1))
+                return str[0] + "*" + allStar(str[1:])
         
 
         '''
@@ -336,13 +335,13 @@ class PythonRecursion_1(object:
         pairStar("xxyy") -> "x*xy*y"
         pairStar("aaaa") -> "a*a*a*a"
         '''
-        def pairStar(string str):
-            if string.IsNullOrEmpty(str) || len(str) == 1:
+        def pairStar(str):
+            if string.IsNullOrEmpty(str) or len(str) == 1:
                 return str
             elif str[0] == str[1]:
-                return str[0] + "*" + pairStar(str.Substring(1))
+                return str[0] + "*" + pairStar(str[1:])
             else:
-                return str[0] + pairStar(str.Substring(1))
+                return str[0] + pairStar(str[1:])
 
         
 
@@ -354,13 +353,13 @@ class PythonRecursion_1(object:
         endX("xxhixx") -> "hixxxx"
         endX("xhixhix") -> "hihixxx"
         '''
-        def endX(string str):
+        def endX(str):
             if string.IsNullOrEmpty(str):
                 return str
-            elif str[0] == 'x'):
-                return endX(str.Substring(1)) + 'x'
+            elif str[0] == 'x':
+                return endX(str[1:]) + 'x'
             else:
-                return str[0] + endX(str.Substring(1))
+                return str[0] + endX(str[1:])
         
 
         '''
@@ -372,13 +371,13 @@ class PythonRecursion_1(object:
         countPairs("axax") -> 2
         countPairs("axbx") -> 1
         '''
-        def countPairs(string str):
-            if string.IsNullOrEmpty(str) || len(str) < 3):
+        def countPairs(str):
+            if string.IsNullOrEmpty(str) or len(str) < 3:
                 return 0
-            elif str[0] == str[2]):
-                return 1 + countPairs(str.Substring(1))
+            elif str[0] == str[2]:
+                return 1 + countPairs(str[1:])
             else:
-                return countPairs(str.Substring(1))
+                return countPairs(str[1:])
         
 
 
@@ -389,13 +388,13 @@ class PythonRecursion_1(object:
         countAbc("abcxxabc") -> 2
         countAbc("abaxxaba") -> 2
         '''
-        def countAbc(string str):
-            if string.IsNullOrEmpty(str) || len(str) < 3):
+        def countAbc(str):
+            if string.IsNullOrEmpty(str) or len(str) < 3:
                 return 0
-            elif str.Substring(0,3).Equals("abc") || str.Substring(0,3).Equals("aba")):
-                return 1 + countAbc(str.Substring(1))
+            elif str.Substring(0,3).Equals("abc") or str.Substring(0,3).Equals("aba"):
+                return 1 + countAbc(str[1:])
             else:
-                return countAbc(str.Substring(1))
+                return countAbc(str[1:])
         
 
         '''
@@ -406,14 +405,13 @@ class PythonRecursion_1(object:
         count11("abc11x11x11") -> 3
         count11("111") -> 1
         '''
-        def count11(string str)
-        
-            if string.IsNullOrEmpty(str) || len(str) < 2)
+        def count11(str):
+            if string.IsNullOrEmpty(str) or len(str) < 2):
                 return 0
-            elif str.Substring(0, 2).Equals("11"))
-                return 1 + count11(str.Substring(2))
+            elif str.Substring(0, 2) == "11":
+                return 1 + count11(str[2:])
             else
-                return count11(str.Substring(1))
+                return count11(str[1:])
         
 
         '''
@@ -424,13 +422,13 @@ class PythonRecursion_1(object:
         stringClean("abbbcdd") -> "abcd"
         stringClean("Hello") -> "Helo"
         '''
-        def stringClean(string str):
-            if string.IsNullOrEmpty(str) || len(str) < 2):
+        def stringClean(str):
+            if string.IsNullOrEmpty(str) or len(str) < 2):
                 return str
-            elif str[0] == str[1]):
-                return stringClean(str.Substring(1))
+            elif str[0] == str[1]:
+                return stringClean(str[1:])
             else:
-                return str[0] + stringClean(str.Substring(1))
+                return str[0] + stringClean(str[1:])
         
 
         '''
@@ -441,20 +439,20 @@ class PythonRecursion_1(object:
         countHi2("ahibhi") -> 2
         countHi2("xhixhi") -> 0
         '''
-        def countHi2(string str):
-            if string.IsNullOrEmpty(str) || len(str) < 2):
+        def countHi2(str):
+            if string.IsNullOrEmpty(str) or len(str) < 2):
                 return 0
-            elif len(str) == 2):
-                if str.Equals("hi")):
+            elif len(str) == 2:
+                if str == "hi":
                     return 1
                 else:
                     return 0
-            elif str[0] == 'x'):
-                return countHi2(str.Substring(2))
-            elif str.Substring(0,2).Equals("hi")):
-                return 1 + countHi2(str.Substring(2))
+            elif str[0] == 'x':
+                return countHi2(str[2:])
+            elif str.Substring(0,2).Equals("hi"):
+                return 1 + countHi2(str[2:])
             else:
-                return countHi2(str.Substring(1))
+                return countHi2(str[1:])
         
 
         '''
@@ -465,51 +463,51 @@ class PythonRecursion_1(object:
         parenBit("x(hello)") -> "(hello)"
         parenBit("(xy)1") -> "(xy)"
         '''
-        def parenBit(string str):
-            if string.IsNullOrEmpty(str) || len(str) < 2):
+        def parenBit(str):
+            if string.IsNullOrEmpty(str) or len(str) < 2:
                 return ""
-            elif str[0] == '(' && str[len(str) - 1] == ')'):
+            elif str[0] == '(' and str[len(str) - 1] == ')'):
                 return str
-            elif str[0] == '('):
-                return parenBit(str.Substring(0, len(str) - 1)):
-            elif str[len(str) - 1] == ')'):
-                return parenBit(str.Substring(1))
+            elif str[0] == '(':
+                return parenBit(str.Substring(0, len(str) - 1):
+            elif str[len(str) - 1] == ')':
+                return parenBit(str[1:])
             else:
                 return parenBit(str.Substring(1, len(str) - 1))
         
 
         '''
-        Given a string, return true if it is a nesting of zero or more pairs of parenthesis, 
+        Given a string, return True if it is a nesting of zero or more pairs of parenthesis, 
         like "(())" or "((()))". Suggestion: check the first and last chars, and then recur 
         on what's inside them.
 
-        nestParen("(())") -> true
-        nestParen("((()))") -> true
-        nestParen("(((x))") -> false
-        nestParen("((())") -> false
-        nestParen("((()()") -> false
-        nestParen("()") -> true
-        nestParen("") -> true
-        nestParen("(yy)") -> false
-        nestParen("(())") -> true
-        nestParen("(((y))") -> false
-        nestParen("((y)))") -> false
-        nestParen("((()))") -> true
-        nestParen("(())))") -> false
-        nestParen("((yy())))") -> false
-        nestParen("(((())))") -> true
+        nestParen("(())") -> True
+        nestParen("((()))") -> True
+        nestParen("(((x))") -> False
+        nestParen("((())") -> False
+        nestParen("((()()") -> False
+        nestParen("()") -> True
+        nestParen("") -> True
+        nestParen("(yy)") -> False
+        nestParen("(())") -> True
+        nestParen("(((y))") -> False
+        nestParen("((y)))") -> False
+        nestParen("((()))") -> True
+        nestParen("(())))") -> False
+        nestParen("((yy())))") -> False
+        nestParen("(((())))") -> True
         '''
-        def bool nestParen(string str):
-            if string.IsNullOrEmpty(str)):
-                return true
+        def nestParen(str):
+            if string.IsNullOrEmpty(str):
+                return True
             elif len(str) == 1):
-                return false
+                return False
             else:
-                char start = str[0]
-                char end = str[len(str) - 1]
+                start = str[0]
+                end = str[len(str) - 1]
 
-                if start != '(' || end != ')'):
-                    return false
+                if start != '(' or end != ')':
+                    return False
                 else:
                     return nestParen(str.Substring(1, len(str) - 2))
             
@@ -523,15 +521,15 @@ class PythonRecursion_1(object:
         strCount("catcowcat", "cow") -> 1
         strCount("catcowcat", "dog") -> 0
         '''
-        def strCount(string str, string sub):
-            if string.IsNullOrEmpty(str) || string.IsNullOrEmpty(sub)):
+        def strCount(str, sub):
+            if string.IsNullOrEmpty(str) or string.IsNullOrEmpty(sub):
                 return 0
             elif len(str) < len(sub)):
                 return 0
             elif str.Substring(0, len(sub)).Equals(sub)):
                 return 1 + strCount(str.Substring(len(sub)), sub)
             else:
-                return strCount(str.Substring(1), sub)
+                return strCount(str[1:], sub)
         
 
 
@@ -539,21 +537,21 @@ class PythonRecursion_1(object:
         Given a string and a non-empty substring sub, compute recursively if at least n copies of 
         sub appear in the string somewhere, possibly with overlapping. N will be non-negative. 
 
-        strCopies("catcowcat", "cat", 2) -> true
-        strCopies("catcowcat", "cow", 2) -> false
-        strCopies("catcowcat", "cow", 1) -> true
+        strCopies("catcowcat", "cat", 2) -> True
+        strCopies("catcowcat", "cow", 2) -> False
+        strCopies("catcowcat", "cow", 1) -> True
         '''
-        def bool strCopies(string str, string sub, int n):
+        def strCopies(str, sub, n):
             if n == 0:
-                return true
-            elif string.IsNullOrEmpty(str) || string.IsNullOrEmpty(sub):
-                return false
+                return True
+            elif string.IsNullOrEmpty(str) or string.IsNullOrEmpty(sub):
+                return False
             elif len(str) < len(sub):
-                return false
+                return False
             elif str.Substring(0, len(sub)).Equals(sub):
                 return strCopies(str.Substring(len(sub)), sub, n - 1)
             else:
-                return strCopies(str.Substring(1), sub, n)
+                return strCopies(str[1:], sub, n)
         
 
         '''      
@@ -564,168 +562,168 @@ class PythonRecursion_1(object:
         strDist("catcowcat", "cow") -> 3
         strDist("cccatcowcatxx", "cat") -> 9
         '''
-        def strDist(string str, string sub):
-            if string.IsNullOrEmpty(str) || string.IsNullOrEmpty(sub):
+        def strDist(str, sub):
+            if string.IsNullOrEmpty(str) or string.IsNullOrEmpty(sub):
                 return 0
             elif len(str) < len(sub):
                 return 0
-            elif str.Substring(0, len(sub)).Equals(sub) && str.Substring(len(str) - len(sub)).Equals(sub):
+            elif str.Substring(0, len(sub)).Equals(sub) and str.Substring(len(str) - len(sub)).Equals(sub):
                 return len(str)
             elif str.Substring(0, len(sub)).Equals(sub):
                 return strDist(str.Substring(0, len(str) - 1), sub)
             elif str.Substring(len(str) - len(sub)).Equals(sub):
-                return strDist(str.Substring(1), sub)
+                return strDist(str[1:], sub)
             else 
                 return strDist(str.Substring(1, len(str) - 1), sub)
         
 
 
-            Console.WriteLine("factorial")
-            Console.WriteLine(factorial(1) == 1)
-            Console.WriteLine(factorial(2) == 2)
-            Console.WriteLine(factorial(3) == 6)
+            print("factorial")
+            print(factorial(1) == 1)
+            print(factorial(2) == 2)
+            print(factorial(3) == 6)
 
-            Console.WriteLine("bunnyEars")
-            Console.WriteLine(bunnyEars(0) == 0)
-            Console.WriteLine(bunnyEars(1) == 2)
-            Console.WriteLine(bunnyEars(2) == 4)
+            print("bunnyEars")
+            print(bunnyEars(0) == 0)
+            print(bunnyEars(1) == 2)
+            print(bunnyEars(2) == 4)
 
-            Console.WriteLine("fibonacci")
-            Console.WriteLine(fibonacci(0) == 0)
-            Console.WriteLine(fibonacci(1) == 1)
-            Console.WriteLine(fibonacci(2) == 1)
+            print("fibonacci")
+            print(fibonacci(0) == 0)
+            print(fibonacci(1) == 1)
+            print(fibonacci(2) == 1)
 
-            Console.WriteLine("bunnyEars2")
-            Console.WriteLine(bunnyEars2(0) == 0)
-            Console.WriteLine(bunnyEars2(1) == 2)
-            Console.WriteLine(bunnyEars2(2) == 5)
+            print("bunnyEars2")
+            print(bunnyEars2(0) == 0)
+            print(bunnyEars2(1) == 2)
+            print(bunnyEars2(2) == 5)
 
-            Console.WriteLine("triangle")
-            Console.WriteLine(triangle(0) == 0)
-            Console.WriteLine(triangle(1) == 1)
-            Console.WriteLine(triangle(2) == 3)
+            print("triangle")
+            print(triangle(0) == 0)
+            print(triangle(1) == 1)
+            print(triangle(2) == 3)
 
-            Console.WriteLine("sumDigits")
-            Console.WriteLine(sumDigits(126) == 9)
-            Console.WriteLine(sumDigits(49) == 13)
-            Console.WriteLine(sumDigits(12) == 3)
+            print("sumDigits")
+            print(sumDigits(126) == 9)
+            print(sumDigits(49) == 13)
+            print(sumDigits(12) == 3)
 
-            Console.WriteLine("count7")
-            Console.WriteLine(count7(717) == 2)
-            Console.WriteLine(count7(7) == 1)
-            Console.WriteLine(count7(123) == 0)
+            print("count7")
+            print(count7(717) == 2)
+            print(count7(7) == 1)
+            print(count7(123) == 0)
 
-            Console.WriteLine("count8")
-            Console.WriteLine(count8(8) == 1)
-            Console.WriteLine(count8(818) == 2)
-            Console.WriteLine(count8(8818) == 4)
+            print("count8")
+            print(count8(8) == 1)
+            print(count8(818) == 2)
+            print(count8(8818) == 4)
 
-            Console.WriteLine("powerN")
-            Console.WriteLine(powerN(3, 1) == 3)
-            Console.WriteLine(powerN(3, 2) == 9)
-            Console.WriteLine(powerN(3, 3) == 27)
+            print("powerN")
+            print(powerN(3, 1) == 3)
+            print(powerN(3, 2) == 9)
+            print(powerN(3, 3) == 27)
 
-            Console.WriteLine("countX")
-            Console.WriteLine(countX("xxhixx") == 4)
-            Console.WriteLine(countX("xhixhix") == 3)
-            Console.WriteLine(countX("hi") == 0)
+            print("countX")
+            print(countX("xxhixx") == 4)
+            print(countX("xhixhix") == 3)
+            print(countX("hi") == 0)
 
-            Console.WriteLine("countHi")
-            Console.WriteLine(countHi("xxhixx") == 1)
-            Console.WriteLine(countHi("xhixhix") == 2)
-            Console.WriteLine(countHi("hi") == 1)
+            print("countHi")
+            print(countHi("xxhixx") == 1)
+            print(countHi("xhixhix") == 2)
+            print(countHi("hi") == 1)
 
-            Console.WriteLine("changeXY")
-            Console.WriteLine(changeXY("codex") == "codey")
-            Console.WriteLine(changeXY("xxhixx") == "yyhiyy")
-            Console.WriteLine(changeXY("xhixhix") == "yhiyhiy")
+            print("changeXY")
+            print(changeXY("codex") == "codey")
+            print(changeXY("xxhixx") == "yyhiyy")
+            print(changeXY("xhixhix") == "yhiyhiy")
 
-            Console.WriteLine("changePi")
-            Console.WriteLine(changePi("xpix") == "x3.14x")
-            Console.WriteLine(changePi("pipi") == "3.143.14")
-            Console.WriteLine(changePi("pip") == "3.14p")
+            print("changePi")
+            print(changePi("xpix") == "x3.14x")
+            print(changePi("pipi") == "3.143.14")
+            print(changePi("pip") == "3.14p")
 
-            Console.WriteLine("noX")
-            Console.WriteLine(noX("xaxb") == "ab")
-            Console.WriteLine(noX("abc") == "abc")
-            Console.WriteLine(noX("xx") == "")
+            print("noX")
+            print(noX("xaxb") == "ab")
+            print(noX("abc") == "abc")
+            print(noX("xx") == "")
 
-            Console.WriteLine("array6")
-            Console.WriteLine(array6(new int[]  1, 6, 4, 0) == true)
-            Console.WriteLine(array6(new int[]  1, 4, 0) == false)
-            Console.WriteLine(array6(new int[]  6 , 0) == true)
+            print("array6")
+            print(array6(new int[]  1, 6, 4, 0) == True)
+            print(array6(new int[]  1, 4, 0) == False)
+            print(array6(new int[]  6 , 0) == True)
 
-            Console.WriteLine("array11")
-            Console.WriteLine(array11(new int[]  1, 2, 11, 0) == 1)
-            Console.WriteLine(array11(new int[]  11, 11, 0) == 2)
-            Console.WriteLine(array11(new int[]  1, 2, 3, 4, 0) == 0)
+            print("array11")
+            print(array11(new int[]  1, 2, 11, 0) == 1)
+            print(array11(new int[]  11, 11, 0) == 2)
+            print(array11(new int[]  1, 2, 3, 4, 0) == 0)
 
-            Console.WriteLine("array220")
-            Console.WriteLine(array220(new int[]  1, 2, 20, 0) == true)
-            Console.WriteLine(array220(new int[]  3, 30, 0) == true)
-            Console.WriteLine(array220(new int[]  3 , 0) == false)
+            print("array220")
+            print(array220(new int[]  1, 2, 20, 0) == True)
+            print(array220(new int[]  3, 30, 0) == True)
+            print(array220(new int[]  3 , 0) == False)
 
-            Console.WriteLine("allStar")
-            Console.WriteLine(allStar("hello") == "h*e*l*l*o")
-            Console.WriteLine(allStar("abc") == "a*b*c")
-            Console.WriteLine(allStar("ab") == "a*b")
+            print("allStar")
+            print(allStar("hello") == "h*e*l*l*o")
+            print(allStar("abc") == "a*b*c")
+            print(allStar("ab") == "a*b")
 
-            Console.WriteLine("pairStar")
-            Console.WriteLine(pairStar("hello") == "hel*lo")
-            Console.WriteLine(pairStar("xxyy") == "x*xy*y")
-            Console.WriteLine(pairStar("aaaa") == "a*a*a*a")
+            print("pairStar")
+            print(pairStar("hello") == "hel*lo")
+            print(pairStar("xxyy") == "x*xy*y")
+            print(pairStar("aaaa") == "a*a*a*a")
 
-            Console.WriteLine("endX")
-            Console.WriteLine(endX("xxre") == "rexx")
-            Console.WriteLine(endX("xxhixx") == "hixxxx")
-            Console.WriteLine(endX("xhixhix") == "hihixxx")
+            print("endX")
+            print(endX("xxre") == "rexx")
+            print(endX("xxhixx") == "hixxxx")
+            print(endX("xhixhix") == "hihixxx")
 
-            Console.WriteLine("countPairs")
-            Console.WriteLine(countPairs("axa") == 1)
-            Console.WriteLine(countPairs("axax") == 2)
-            Console.WriteLine(countPairs("axbx") == 1)
+            print("countPairs")
+            print(countPairs("axa") == 1)
+            print(countPairs("axax") == 2)
+            print(countPairs("axbx") == 1)
 
-            Console.WriteLine("countAbc")
-            Console.WriteLine(countAbc("abc") == 1)
-            Console.WriteLine(countAbc("abcxxabc") == 2)
-            Console.WriteLine(countAbc("abaxxaba") == 2)
+            print("countAbc")
+            print(countAbc("abc") == 1)
+            print(countAbc("abcxxabc") == 2)
+            print(countAbc("abaxxaba") == 2)
 
-            Console.WriteLine("count11")
-            Console.WriteLine(count11("11abc11") == 2)
-            Console.WriteLine(count11("abc11x11x11") == 3)
-            Console.WriteLine(count11("111") == 1)
+            print("count11")
+            print(count11("11abc11") == 2)
+            print(count11("abc11x11x11") == 3)
+            print(count11("111") == 1)
 
-            Console.WriteLine("stringClean")
-            Console.WriteLine(stringClean("yyzzza") == "yza")
-            Console.WriteLine(stringClean("abbbcdd") == "abcd")
-            Console.WriteLine(stringClean("Hello") == "Helo")
+            print("stringClean")
+            print(stringClean("yyzzza") == "yza")
+            print(stringClean("abbbcdd") == "abcd")
+            print(stringClean("Hello") == "Helo")
 
-            Console.WriteLine("countHi2")
-            Console.WriteLine(countHi2("ahixhi") == 1)
-            Console.WriteLine(countHi2("ahibhi") == 2)
-            Console.WriteLine(countHi2("xhixhi") == 0)
+            print("countHi2")
+            print(countHi2("ahixhi") == 1)
+            print(countHi2("ahibhi") == 2)
+            print(countHi2("xhixhi") == 0)
 
-            Console.WriteLine("parenBit")
-            Console.WriteLine(parenBit("xyz(abc)123") == "(abc)")
-            Console.WriteLine(parenBit("x(hello)") == "(hello)")
-            Console.WriteLine(parenBit("(xy)1") == "(xy)")
+            print("parenBit")
+            print(parenBit("xyz(abc)123") == "(abc)")
+            print(parenBit("x(hello)") == "(hello)")
+            print(parenBit("(xy)1") == "(xy)")
 
-            Console.WriteLine("nestParen")
-            Console.WriteLine(nestParen("(())") == true)
-            Console.WriteLine(nestParen("((()))") == true)
-            Console.WriteLine(nestParen("(((x))") == false)
+            print("nestParen")
+            print(nestParen("(())") == True)
+            print(nestParen("((()))") == True)
+            print(nestParen("(((x))") == False)
 
-            Console.WriteLine("strCount")
-            Console.WriteLine(strCount("catcowcat", "cat") == 2)
-            Console.WriteLine(strCount("catcowcat", "cow") == 1)
-            Console.WriteLine(strCount("catcowcat", "dog") == 0)
+            print("strCount")
+            print(strCount("catcowcat", "cat") == 2)
+            print(strCount("catcowcat", "cow") == 1)
+            print(strCount("catcowcat", "dog") == 0)
 
-            Console.WriteLine("strCopies")
-            Console.WriteLine(strCopies("catcowcat", "cat", 2) == true)
-            Console.WriteLine(strCopies("catcowcat", "cow", 2) == false)
-            Console.WriteLine(strCopies("catcowcat", "cow", 1) == true)
+            print("strCopies")
+            print(strCopies("catcowcat", "cat", 2) == True)
+            print(strCopies("catcowcat", "cow", 2) == False)
+            print(strCopies("catcowcat", "cow", 1) == True)
 
-            Console.WriteLine("strDist")
-            Console.WriteLine(strDist("catcowcat", "cat") == 9)
-            Console.WriteLine(strDist("catcowcat", "cow") == 3)
-            Console.WriteLine(strDist("cccatcowcatxx", "cat") == 9)
+            print("strDist")
+            print(strDist("catcowcat", "cat") == 9)
+            print(strDist("catcowcat", "cow") == 3)
+            print(strDist("cccatcowcatxx", "cat") == 9)

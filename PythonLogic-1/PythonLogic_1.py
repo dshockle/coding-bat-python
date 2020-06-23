@@ -11,9 +11,9 @@ class PythonLogic_1(object):
         lastDigit(23, 19, 3) -> True        
         '''
         def lastDigit(values):
-            List<int> digits = new List<int>()
-            for val in values):
-                if digits.Contains(val % 10)):
+            digits = []
+            for val in values:
+                if digits.Contains(val % 10):
                     return True
                 else:
                     digits.Add(val % 10)
@@ -29,8 +29,8 @@ class PythonLogic_1(object):
         lessBy10(11, 1, 7) -> True        
         '''
         def lessBy10(values):
-            for val in values):
-                if values.Contains(val - 10) || values.Contains(val + 10)):
+            for val in values:
+                if values.Contains(val - 10) or values.Contains(val + 10):
                     return True
             return False
         
@@ -45,13 +45,12 @@ class PythonLogic_1(object):
             withoutDoubles(3, 3, True) -> 7
             withoutDoubles(3, 3, False) -> 6        
         '''
-        def withoutDoubles(die1, die2, bool noDoubles):
-        
-            if noDoubles && (die1 == die2):
+        def withoutDoubles(die1, die2, noDoubles):
+            if noDoubles and (die1 == die2):
                 if die1 == 6:
                     die1 = 1
                 else:
-                    die1++
+                    die1 += 1
 
             return die1 + die2
         
@@ -67,10 +66,10 @@ class PythonLogic_1(object):
         maxMod5(3, 3) -> 0        
         '''
         def maxMod5(values):
-            HashSet<int> vals = new HashSet<int>()
-            HashSet<int> mods = new HashSet<int>()
+            vals = ()
+            mods = ()
  
-            for val in values):
+            for val in values:
                  vals.Add(val)
                  mods.Add(val % 5)
             
@@ -94,7 +93,8 @@ class PythonLogic_1(object):
         redTicket(0, 0, 0) -> 5        
         '''
         def redTicket(values):
-            HashSet<int> vals = new HashSet<int>(values)
+            vals = ()
+            values.add(values)
             if vals.Count == 1:
                 if vals.Contains(2):
                     return 10
@@ -115,18 +115,15 @@ class PythonLogic_1(object):
         greenTicket(1, 1, 2) -> 10        
         '''
         def greenTicket(values):
-            bool allSame = True
-            bool allDifferent = True
+            allSame = True
+            allDifferent = True
 
-            for (i = 0 i < values.Length i++):
-            
-                for (j = i + 1 j < values.Length j++):
-                
-                    if values[i] != values[j]):
+            for i in range (0, len(values)):
+                for j in range(i+1, len(values)):
+                    if values[i] != values[j]:
                         allSame = False
-                    if values[i] == values[j]):
+                    if values[i] == values[j]:
                         allDifferent = False
-                
             
             if allSame:
                 return 20
@@ -149,13 +146,13 @@ class PythonLogic_1(object):
         blueTicket(14, 1, 4) -> 5        
         '''
         def blueTicket(values):
-            HashSet<int> pairs = new HashSet<int>()
+            pairs = ()
 
-            for(i = 0 i < values.Length i++:
-                for(j = 0 j < values.Length j++:
+            for i in range(0, len(values)):
+                for j in range(0, len(values)):
                     if i != j:
                         pair = values[i] + values[j]
-                        if pair == 10)
+                        if pair == 10:
                             return 10
                         elif pairs.Contains(pair - 10):
                             return 5
@@ -178,22 +175,22 @@ class PythonLogic_1(object):
         def shareDigit(values):
             List<HashSet<int>> list = new List<HashSet<int>>()
 
-            for(i = 0 i < values.Length i++):
-                HashSet<int> digits = new HashSet<int>()
+            for i in range(0, len(values)):
+                digits = ()
 
                 if values[i] == 0:
                     digits.Add(values[i])
                 else:
-                    while (values[i] != 0:
+                    while values[i] != 0:
                         digits.Add(values[i] % 10)
                         values[i] /= 10
 
-                list.Add(digits)
+                list.append(digits)
             
 
-            for (i = 0 i < list.Count - 1 i++:
-                for (j = i + 1 j < list.Count j++:
-                    foreach(n in list[i]):
+            for i in range (0, list.Count-1):
+                for j in range(i+1, list.Count)::
+                    for n in list[i]:
                         if list[j].Contains(n):
                             return True
 
@@ -214,8 +211,7 @@ class PythonLogic_1(object):
             max = values.Max()
             sumDigits = Math.Abs(sum).ToString().Length
             maxDigits = Math.Abs(max).ToString().Length
-            return sumDigits == maxDigits -> sum : max
-        
+            return sumDigits == maxDigits
 
 
     print("lastDigit")
