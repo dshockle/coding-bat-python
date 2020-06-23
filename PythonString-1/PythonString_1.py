@@ -1,28 +1,22 @@
 import enum
 import sys
 
-class Colors(enum.Enum):
-    red = 1
-    green = 2
-    blue = 3
-    yellow = 4
-
 class PythonString_1(object):
 
-        #enum Colors  red, green, blue, yellow 
-
         '''
-        Given a string, if the string begins with "red" or "blue" return that color string, 
-        otherwise return the empty string. 
+        Given a string, if the string begins with "red", "blue", "green" or "yellow" 
+        return that color string, otherwise return the empty string. 
 
         seeColor("redxx") -> "red"
         seeColor("xxred") -> ""
         seeColor("blueTimes") -> "blue"
         '''
-        def seeColor(str):
-            for color in Colors:
-                if (str.strip().lower().startswith(color.name)):
-                    return color.name
+        def seeColor(sc):
+            scColors = ["red", "green", "blue", "yellow"]
+            lowStr = sc.strip().lower()
+            for color in scColors:
+                if lowStr.startswith(color):
+                    return color
             return ""
 
 
@@ -34,8 +28,8 @@ class PythonString_1(object):
         frontAgain("edit") -> False
         frontAgain("ed") -> True
         '''
-        def frontAgain(str):
-            return len(str) >= 2 and str[:2] == str[-2:]
+        def frontAgain(fa):
+            return len(fa) >= 2 and fa[:2] == fa[-2:]
         
 
         '''
@@ -49,13 +43,14 @@ class PythonString_1(object):
         minCat("Hello", "java") -> "ellojava"
         minCat("java", "Hello") -> "javaello"        
         '''
-        def minCat(a, string b):
-            if len(a) > len(b):
-                return a[len(a) - len(b)] + b
-            else if (len(a) < len(b)):
-                return a + b[len(b) - len(a)]
+        def minCat(mcA, mcB):
+            mlen = min(len(mcA), len(mcB))
+            if len(mcA) > len(mcB):
+                return mcA[-mlen:] + mcB
+            elif len(mcA) < len(mcB):
+                return mcA + mcB[-mlen:]
             else:
-                return a + b
+                return mcA + mcB
         
 
         '''
@@ -66,8 +61,8 @@ class PythonString_1(object):
         extraFront("ab", 2) -> "abab"
         extraFront("H", 3) -> "HHH"        
         '''
-        def extraFront(str,n):
-            return str[:n] * n
+        def extraFront(ef, efn):
+            return ef[:efn] * efn
         
 
         '''
@@ -81,13 +76,13 @@ class PythonString_1(object):
         without2("HelloHi") -> "HelloHi"
         without2("Hi") -> ""        
         '''
-        def without2(str):
-            if len(str) < 2:
+        def without2(wo2):
+            if len(wo2) < 2:
                 return str
-            elif str[:2] == str[-2:]:
-                return str[2:]
+            elif wo2[:2] == wo2[2:]:
+                return wo2[2:]
             else:
-                return str
+                return wo2
         
 
         '''
@@ -99,14 +94,14 @@ class PythonString_1(object):
         deFront("java") -> "va"
         deFront("away") -> "aay"        
         '''
-        def deFront(str):
+        def deFront(df):
             sb = ""
-            if (len(str) > 0 && str[0] == 'a'):
+            if len(df) > 0 and df[0] == 'a':
                 sb += str[0]
-            if (len(str) > 1 && str[1] == 'b'):
-                sb += str[1]
-            if (len(str) > 2):
-                sb += str[:2]
+            if len(df) > 1 and df[1] == 'b':
+                sb += df[1]
+            if len(df) > 2:
+                sb += df[:2]
             return sb
         
 
@@ -122,12 +117,13 @@ class PythonString_1(object):
         startWord("hippo", "xip") -> "hip"
         startWord("hippo", "z") -> "h"        
         '''
-        def startWord(str, string word):
-            if (str[:1], len(word) - 1).Equals(word[:1])):
-                return str[:0, len(word))
+        def startWord(sw1, sw2):
+            mlen = min(len(sw1), len(sw2))
+            if str[1:mlen] == word[1:mlen]:
+                return str[:mlen]
             else:
                 return ""
-        
+
 
         '''
         Given a string, if the first or last chars are 'x', return the string 
@@ -137,20 +133,20 @@ class PythonString_1(object):
         withoutX("xHi") -> "Hi"
         withoutX("Hxix") -> "Hxi"        
         '''
-        def withoutX(str):
+        def withoutX(wx):
         
-            sb = ""
+            wxResult = ""
 
-            if (len(str) > 0 && str[0] != 'x'):
-                sb +=(str[0])
+            if len(wx) > 0 and wx[0] != 'x':
+                wxResult +=(wx[0])
 
-            if (len(str) > 2):
-                sb +=(str[:1, len(str) - 2))
+            if len(wx) > 2:
+                wxResult += wx[1:len(wx)-2]
 
-            if (len(str) > 1 && str[len(str) - 1] != 'x'):
-                sb +=(str[len(str) - 1])
+            if len(wx) > 1 and wx[len(wx)-1] != 'x':
+                wxResult += wx[len(wx)-1]
 
-            return sb
+            return wxResult
         
 
         '''
@@ -162,19 +158,16 @@ class PythonString_1(object):
         withoutX2("Hxi") -> "Hi"
         withoutX2("Hi") -> "Hi"        
         '''
-        def withoutX2(str):
-            sb = ""
-
-            if (len(str) > 0 && str[0] != 'x'):
-                sb +=(str[0])
-
-            if (len(str) > 1 && str[1] != 'x'):
-                sb +=(str[1])
-
-            if (len(str) > 2):
-                sb +=(str[:2))
-
-            return sb
+        def withoutX2(wx2):
+            wx2Result = ""
+            slen = len(wx2)
+            if slen > 0 and wx2[0] != 'x':
+                wx2Result += wx2[0]
+            if slen > 1 and wx2[1] != 'x':
+                wx2Result += wx2[1]
+            if slen > 2:
+                wx2Result += wx2[:2]
+            return wx2Result
         
 
 
