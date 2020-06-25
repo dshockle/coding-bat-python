@@ -10,9 +10,7 @@ class PythonRecursion_1(object):
         factorial(3) -> 6
         '''
         def factorial(n):
-            if n == 0:
-                return 0
-            elif n == 1:
+            if n <= 1:
                 return 1
             else:
                 return n * factorial(n-1)
@@ -321,7 +319,7 @@ class PythonRecursion_1(object):
         '''
 
         def allStar(str):
-            if string.IsNullOrEmpty(str) or len(str) == 1:
+            if not str or len(str) == 1:
                 return str
             else:
                 return str[0] + "*" + allStar(str[1:])
@@ -336,7 +334,7 @@ class PythonRecursion_1(object):
         pairStar("aaaa") -> "a*a*a*a"
         '''
         def pairStar(str):
-            if string.IsNullOrEmpty(str) or len(str) == 1:
+            if not str or len(str) == 1:
                 return str
             elif str[0] == str[1]:
                 return str[0] + "*" + pairStar(str[1:])
@@ -354,7 +352,7 @@ class PythonRecursion_1(object):
         endX("xhixhix") -> "hihixxx"
         '''
         def endX(str):
-            if string.IsNullOrEmpty(str):
+            if not str:
                 return str
             elif str[0] == 'x':
                 return endX(str[1:]) + 'x'
@@ -372,7 +370,7 @@ class PythonRecursion_1(object):
         countPairs("axbx") -> 1
         '''
         def countPairs(str):
-            if string.IsNullOrEmpty(str) or len(str) < 3:
+            if not str or len(str) < 3:
                 return 0
             elif str[0] == str[2]:
                 return 1 + countPairs(str[1:])
@@ -389,7 +387,7 @@ class PythonRecursion_1(object):
         countAbc("abaxxaba") -> 2
         '''
         def countAbc(str):
-            if string.IsNullOrEmpty(str) or len(str) < 3:
+            if not str or len(str) < 3:
                 return 0
             elif str.Substring(0,3).Equals("abc") or str.Substring(0,3).Equals("aba"):
                 return 1 + countAbc(str[1:])
@@ -406,11 +404,11 @@ class PythonRecursion_1(object):
         count11("111") -> 1
         '''
         def count11(str):
-            if string.IsNullOrEmpty(str) or len(str) < 2):
+            if not str or len(str) < 2:
                 return 0
-            elif str.Substring(0, 2) == "11":
+            elif str[:2] == "11":
                 return 1 + count11(str[2:])
-            else
+            else:
                 return count11(str[1:])
         
 
@@ -423,7 +421,7 @@ class PythonRecursion_1(object):
         stringClean("Hello") -> "Helo"
         '''
         def stringClean(str):
-            if string.IsNullOrEmpty(str) or len(str) < 2):
+            if not str or len(str) < 2:
                 return str
             elif str[0] == str[1]:
                 return stringClean(str[1:])
@@ -440,7 +438,7 @@ class PythonRecursion_1(object):
         countHi2("xhixhi") -> 0
         '''
         def countHi2(str):
-            if string.IsNullOrEmpty(str) or len(str) < 2):
+            if not str or len(str) < 2:
                 return 0
             elif len(str) == 2:
                 if str == "hi":
@@ -464,12 +462,12 @@ class PythonRecursion_1(object):
         parenBit("(xy)1") -> "(xy)"
         '''
         def parenBit(str):
-            if string.IsNullOrEmpty(str) or len(str) < 2:
+            if not str or len(str) < 2:
                 return ""
-            elif str[0] == '(' and str[len(str) - 1] == ')'):
+            elif str[0] == '(' and str[len(str) - 1] == ')':
                 return str
             elif str[0] == '(':
-                return parenBit(str.Substring(0, len(str) - 1):
+                return parenBit(str.Substring(0, len(str) - 1))
             elif str[len(str) - 1] == ')':
                 return parenBit(str[1:])
             else:
@@ -498,9 +496,9 @@ class PythonRecursion_1(object):
         nestParen("(((())))") -> True
         '''
         def nestParen(str):
-            if string.IsNullOrEmpty(str):
+            if not str:
                 return True
-            elif len(str) == 1):
+            elif len(str) == 1:
                 return False
             else:
                 start = str[0]
@@ -522,11 +520,11 @@ class PythonRecursion_1(object):
         strCount("catcowcat", "dog") -> 0
         '''
         def strCount(str, sub):
-            if string.IsNullOrEmpty(str) or string.IsNullOrEmpty(sub):
+            if not str or string.IsNullOrEmpty(sub):
                 return 0
-            elif len(str) < len(sub)):
+            elif len(str) < len(sub):
                 return 0
-            elif str.Substring(0, len(sub)).Equals(sub)):
+            elif str.Substring(0, len(sub)).Equals(sub):
                 return 1 + strCount(str.Substring(len(sub)), sub)
             else:
                 return strCount(str[1:], sub)
@@ -544,7 +542,7 @@ class PythonRecursion_1(object):
         def strCopies(str, sub, n):
             if n == 0:
                 return True
-            elif string.IsNullOrEmpty(str) or string.IsNullOrEmpty(sub):
+            elif not str or string.IsNullOrEmpty(sub):
                 return False
             elif len(str) < len(sub):
                 return False
@@ -563,7 +561,7 @@ class PythonRecursion_1(object):
         strDist("cccatcowcatxx", "cat") -> 9
         '''
         def strDist(str, sub):
-            if string.IsNullOrEmpty(str) or string.IsNullOrEmpty(sub):
+            if not str or string.IsNullOrEmpty(sub):
                 return 0
             elif len(str) < len(sub):
                 return 0
@@ -573,157 +571,157 @@ class PythonRecursion_1(object):
                 return strDist(str.Substring(0, len(str) - 1), sub)
             elif str.Substring(len(str) - len(sub)).Equals(sub):
                 return strDist(str[1:], sub)
-            else 
+            else:
                 return strDist(str.Substring(1, len(str) - 1), sub)
         
 
 
-            print("factorial")
-            print(factorial(1) == 1)
-            print(factorial(2) == 2)
-            print(factorial(3) == 6)
+        print("factorial")
+        print(factorial(1) == 1)
+        print(factorial(2) == 2)
+        print(factorial(3) == 6)
 
-            print("bunnyEars")
-            print(bunnyEars(0) == 0)
-            print(bunnyEars(1) == 2)
-            print(bunnyEars(2) == 4)
+        print("bunnyEars")
+        print(bunnyEars(0) == 0)
+        print(bunnyEars(1) == 2)
+        print(bunnyEars(2) == 4)
 
-            print("fibonacci")
-            print(fibonacci(0) == 0)
-            print(fibonacci(1) == 1)
-            print(fibonacci(2) == 1)
+        print("fibonacci")
+        print(fibonacci(0) == 0)
+        print(fibonacci(1) == 1)
+        print(fibonacci(2) == 1)
 
-            print("bunnyEars2")
-            print(bunnyEars2(0) == 0)
-            print(bunnyEars2(1) == 2)
-            print(bunnyEars2(2) == 5)
+        print("bunnyEars2")
+        print(bunnyEars2(0) == 0)
+        print(bunnyEars2(1) == 2)
+        print(bunnyEars2(2) == 5)
 
-            print("triangle")
-            print(triangle(0) == 0)
-            print(triangle(1) == 1)
-            print(triangle(2) == 3)
+        print("triangle")
+        print(triangle(0) == 0)
+        print(triangle(1) == 1)
+        print(triangle(2) == 3)
 
-            print("sumDigits")
-            print(sumDigits(126) == 9)
-            print(sumDigits(49) == 13)
-            print(sumDigits(12) == 3)
+        print("sumDigits")
+        print(sumDigits(126) == 9)
+        print(sumDigits(49) == 13)
+        print(sumDigits(12) == 3)
 
-            print("count7")
-            print(count7(717) == 2)
-            print(count7(7) == 1)
-            print(count7(123) == 0)
+        print("count7")
+        print(count7(717) == 2)
+        print(count7(7) == 1)
+        print(count7(123) == 0)
 
-            print("count8")
-            print(count8(8) == 1)
-            print(count8(818) == 2)
-            print(count8(8818) == 4)
+        print("count8")
+        print(count8(8) == 1)
+        print(count8(818) == 2)
+        print(count8(8818) == 4)
 
-            print("powerN")
-            print(powerN(3, 1) == 3)
-            print(powerN(3, 2) == 9)
-            print(powerN(3, 3) == 27)
+        print("powerN")
+        print(powerN(3, 1) == 3)
+        print(powerN(3, 2) == 9)
+        print(powerN(3, 3) == 27)
 
-            print("countX")
-            print(countX("xxhixx") == 4)
-            print(countX("xhixhix") == 3)
-            print(countX("hi") == 0)
+        print("countX")
+        print(countX("xxhixx") == 4)
+        print(countX("xhixhix") == 3)
+        print(countX("hi") == 0)
 
-            print("countHi")
-            print(countHi("xxhixx") == 1)
-            print(countHi("xhixhix") == 2)
-            print(countHi("hi") == 1)
+        print("countHi")
+        print(countHi("xxhixx") == 1)
+        print(countHi("xhixhix") == 2)
+        print(countHi("hi") == 1)
 
-            print("changeXY")
-            print(changeXY("codex") == "codey")
-            print(changeXY("xxhixx") == "yyhiyy")
-            print(changeXY("xhixhix") == "yhiyhiy")
+        print("changeXY")
+        print(changeXY("codex") == "codey")
+        print(changeXY("xxhixx") == "yyhiyy")
+        print(changeXY("xhixhix") == "yhiyhiy")
 
-            print("changePi")
-            print(changePi("xpix") == "x3.14x")
-            print(changePi("pipi") == "3.143.14")
-            print(changePi("pip") == "3.14p")
+        print("changePi")
+        print(changePi("xpix") == "x3.14x")
+        print(changePi("pipi") == "3.143.14")
+        print(changePi("pip") == "3.14p")
 
-            print("noX")
-            print(noX("xaxb") == "ab")
-            print(noX("abc") == "abc")
-            print(noX("xx") == "")
+        print("noX")
+        print(noX("xaxb") == "ab")
+        print(noX("abc") == "abc")
+        print(noX("xx") == "")
 
-            print("array6")
-            print(array6(new int[]  1, 6, 4, 0) == True)
-            print(array6(new int[]  1, 4, 0) == False)
-            print(array6(new int[]  6 , 0) == True)
+        print("array6")
+        print(array6([1, 6, 4, 0]) == True)
+        print(array6([1, 4, 0]) == False)
+        print(array6([6 , 0]) == True)
 
-            print("array11")
-            print(array11(new int[]  1, 2, 11, 0) == 1)
-            print(array11(new int[]  11, 11, 0) == 2)
-            print(array11(new int[]  1, 2, 3, 4, 0) == 0)
+        print("array11")
+        print(array11([1, 2, 11, 0]) == 1)
+        print(array11([11, 11, 0]) == 2)
+        print(array11([1, 2, 3, 4, 0]) == 0)
 
-            print("array220")
-            print(array220(new int[]  1, 2, 20, 0) == True)
-            print(array220(new int[]  3, 30, 0) == True)
-            print(array220(new int[]  3 , 0) == False)
+        print("array220")
+        print(array220([1, 2, 20, 0]) == True)
+        print(array220([3, 30, 0]) == True)
+        print(array220([3 , 0]) == False)
 
-            print("allStar")
-            print(allStar("hello") == "h*e*l*l*o")
-            print(allStar("abc") == "a*b*c")
-            print(allStar("ab") == "a*b")
+        print("allStar")
+        print(allStar("hello") == "h*e*l*l*o")
+        print(allStar("abc") == "a*b*c")
+        print(allStar("ab") == "a*b")
 
-            print("pairStar")
-            print(pairStar("hello") == "hel*lo")
-            print(pairStar("xxyy") == "x*xy*y")
-            print(pairStar("aaaa") == "a*a*a*a")
+        print("pairStar")
+        print(pairStar("hello") == "hel*lo")
+        print(pairStar("xxyy") == "x*xy*y")
+        print(pairStar("aaaa") == "a*a*a*a")
 
-            print("endX")
-            print(endX("xxre") == "rexx")
-            print(endX("xxhixx") == "hixxxx")
-            print(endX("xhixhix") == "hihixxx")
+        print("endX")
+        print(endX("xxre") == "rexx")
+        print(endX("xxhixx") == "hixxxx")
+        print(endX("xhixhix") == "hihixxx")
 
-            print("countPairs")
-            print(countPairs("axa") == 1)
-            print(countPairs("axax") == 2)
-            print(countPairs("axbx") == 1)
+        print("countPairs")
+        print(countPairs("axa") == 1)
+        print(countPairs("axax") == 2)
+        print(countPairs("axbx") == 1)
 
-            print("countAbc")
-            print(countAbc("abc") == 1)
-            print(countAbc("abcxxabc") == 2)
-            print(countAbc("abaxxaba") == 2)
+        print("countAbc")
+        print(countAbc("abc") == 1)
+        print(countAbc("abcxxabc") == 2)
+        print(countAbc("abaxxaba") == 2)
 
-            print("count11")
-            print(count11("11abc11") == 2)
-            print(count11("abc11x11x11") == 3)
-            print(count11("111") == 1)
+        print("count11")
+        print(count11("11abc11") == 2)
+        print(count11("abc11x11x11") == 3)
+        print(count11("111") == 1)
 
-            print("stringClean")
-            print(stringClean("yyzzza") == "yza")
-            print(stringClean("abbbcdd") == "abcd")
-            print(stringClean("Hello") == "Helo")
+        print("stringClean")
+        print(stringClean("yyzzza") == "yza")
+        print(stringClean("abbbcdd") == "abcd")
+        print(stringClean("Hello") == "Helo")
 
-            print("countHi2")
-            print(countHi2("ahixhi") == 1)
-            print(countHi2("ahibhi") == 2)
-            print(countHi2("xhixhi") == 0)
+        print("countHi2")
+        print(countHi2("ahixhi") == 1)
+        print(countHi2("ahibhi") == 2)
+        print(countHi2("xhixhi") == 0)
 
-            print("parenBit")
-            print(parenBit("xyz(abc)123") == "(abc)")
-            print(parenBit("x(hello)") == "(hello)")
-            print(parenBit("(xy)1") == "(xy)")
+        print("parenBit")
+        print(parenBit("xyz(abc)123") == "(abc)")
+        print(parenBit("x(hello)") == "(hello)")
+        print(parenBit("(xy)1") == "(xy)")
 
-            print("nestParen")
-            print(nestParen("(())") == True)
-            print(nestParen("((()))") == True)
-            print(nestParen("(((x))") == False)
+        print("nestParen")
+        print(nestParen("(())") == True)
+        print(nestParen("((()))") == True)
+        print(nestParen("(((x))") == False)
 
-            print("strCount")
-            print(strCount("catcowcat", "cat") == 2)
-            print(strCount("catcowcat", "cow") == 1)
-            print(strCount("catcowcat", "dog") == 0)
+        print("strCount")
+        print(strCount("catcowcat", "cat") == 2)
+        print(strCount("catcowcat", "cow") == 1)
+        print(strCount("catcowcat", "dog") == 0)
 
-            print("strCopies")
-            print(strCopies("catcowcat", "cat", 2) == True)
-            print(strCopies("catcowcat", "cow", 2) == False)
-            print(strCopies("catcowcat", "cow", 1) == True)
+        print("strCopies")
+        print(strCopies("catcowcat", "cat", 2) == True)
+        print(strCopies("catcowcat", "cow", 2) == False)
+        print(strCopies("catcowcat", "cow", 1) == True)
 
-            print("strDist")
-            print(strDist("catcowcat", "cat") == 9)
-            print(strDist("catcowcat", "cow") == 3)
-            print(strDist("cccatcowcatxx", "cat") == 9)
+        print("strDist")
+        print(strDist("catcowcat", "cat") == 9)
+        print(strDist("catcowcat", "cow") == 3)
+        print(strDist("cccatcowcatxx", "cat") == 9)

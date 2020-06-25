@@ -10,10 +10,11 @@ class PythonInterview_1(object):
         def isPalindrome(word):
             sb = ""
             for c in word:
-                if c.isdalpha() or c.isdigit():
+                if c.isalpha() or c.isdigit():
                     sb += c.lower()
             
-            for i in range(0, len(sb)/2):
+            mid = int(len(sb)/2)
+            for i in range(mid):
                 if sb[i] != sb[len(sb) - 1 - i]:
                     return False
 
@@ -32,21 +33,16 @@ class PythonInterview_1(object):
                 if ch.isalpha():
                     c = ch.lower()
 
-                    if counts.ContainsKey(c):
+                    if c in counts:
                         counts[c] += 1
                     else:
-                        counts.Add(c, 1)
-                
+                        counts[c] = 1
+            
             sb = ""
-
-            list = counts.Keys.ToList()
-            list.Sort()
-
-            for key in list:
-                sb += Line(key + " : " + counts[key])
+            for key, value in sorted(counts.items()):
+                sb += key + ' : ' + str(value) + '\n'
 
             return sb
-        
 
         '''
         print("countWords")
@@ -59,31 +55,27 @@ class PythonInterview_1(object):
             rawlist = sentence.lower().strip().split()
 
             for word in rawlist:
-                if counts.ContainsKey(word):
+                if word in counts:
                     counts[word] += 1
                 else:
-                    counts.Add(word, 1)
+                    counts[word] = 1
 
             sb = ""
-            list = counts.Keys.ToList()
-            list.Sort()
-
-            for key in list:
-                sb += Line(key + " : " + counts[key])
+            for key, value in sorted(counts.items()):
+                sb += key + ' : ' + str(value) + '\n'
 
             return sb
-
         
 
 
-            print("isPalindrome")
-            print(isPalindrome("A man, a plan, a canal: Panama!") == True)
+        print("isPalindrome")
+        print("A man, a plan, a canal: Panama!")
+        print(isPalindrome("A man, a plan, a canal: Panama!") == True)
 
-            print("isPalindromeLinq")
-            print(isPalindromeLinq("A man, a plan, a canal: Panama!") == True)
+        print("countLetters")
+        print("The quick brown fox jumped over the lazy dogs.")
+        print(countLetters("The quick brown fox jumped over the lazy dogs."))
 
-            print("countLetters")
-            print(countLetters("The quick brown fox jumped over the lazy dogs."))
-
-            print("countWords")
-            print(countWords("This is fun and this is easy"))
+        print("countWords")
+        print("This is fun and this is easy")
+        print(countWords("This is fun and this is easy"))

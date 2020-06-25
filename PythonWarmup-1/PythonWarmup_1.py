@@ -1,4 +1,4 @@
-﻿# import sys
+﻿import sys
 
 class PythonWarmup_1(object):
 
@@ -12,7 +12,7 @@ class PythonWarmup_1(object):
     sleepIn(False, True) -> True
     '''
     def sleepIn(w, v):
-        return (not w) or v
+        return v or not w
 
     
 
@@ -26,7 +26,7 @@ class PythonWarmup_1(object):
     monkeyTrouble(True, False) -> False
     '''
     def monkeyTrouble(aSmile, bSmile):
-        return True
+        return aSmile == bSmile
 
     
 
@@ -39,8 +39,10 @@ class PythonWarmup_1(object):
     sumDouble(2, 2) -> 8
     '''
     def sumDouble(a, b):
-        return 2
-
+        if a == b:
+            return 2 * (a + b)
+        else:
+            return a + b
     
 
     '''
@@ -52,7 +54,14 @@ class PythonWarmup_1(object):
     close10(13, 7) -> 0
     '''
     def close10(a, b):
-        return a
+        A = min(10 - a%10, a%10)
+        B = min(10 - b%10, b%10)
+        if A < B:
+            return a
+        elif B < A:
+            return b
+        else:
+            return 0
 
     
 
@@ -64,22 +73,11 @@ class PythonWarmup_1(object):
     stringC("Heelele", 'e', 1, 3) -> False
     '''
     def stringC(str, c, min, max):
-        return ""
-
+        count = str.count(c)
+        return count >= min and count <= max
     
 
-    '''
-    Return True if the given string contains between min and max 'c' chars. 
-    Use Linq. Do not use loops.
-    stringCLinq("Hello", 'e', 1, 3) -> True
-    stringCLinq("Everyone", 'e', 1, 3) -> True
-    stringCLinq("Heelele", 'e', 1, 3) -> False
-    '''
-    def stringCLinq(str, c, min, max):
-        return True
-
     
-
     '''
     Given two non-negative int values, return True if they have the same last digit, 
     such as with 27 and 57. 
@@ -89,7 +87,7 @@ class PythonWarmup_1(object):
     lastDigit(3, 113) -> True
     '''
     def lastDigit(a, b):
-        return 1
+        return a%10 == b%10
   
     
 
@@ -103,7 +101,7 @@ class PythonWarmup_1(object):
     endUp("hi", 3) -> "HI"
     '''
     def endUp(str, num):
-        return ""
+        return str[:-num] + str[-num:].upper()
 
     
 
@@ -117,53 +115,48 @@ class PythonWarmup_1(object):
     everyNth("abcdefg", 3) -> "adg"
     '''
     def everyNth(str, n):
-        return ""
+        return str[::n]
 
     
     
 
     print("sleepIn")
-    print(sleepIn(False, False) == True);
-    print(sleepIn(True, False) == False);
-    print(sleepIn(False, True) == True);
+    print(sleepIn(False, False) == True)
+    print(sleepIn(True, False) == False)
+    print(sleepIn(False, True) == True)
 
-    print("monkeyTrouble");
-    print(monkeyTrouble(True, True) == True);
-    print(monkeyTrouble(False, False) == True);
-    print(monkeyTrouble(True, False) == False);
+    print("monkeyTrouble")
+    print(monkeyTrouble(True, True) == True)
+    print(monkeyTrouble(False, False) == True)
+    print(monkeyTrouble(True, False) == False)
 
-    print("sumDouble");
-    print(sumDouble(1, 2) == 3);
-    print(sumDouble(3, 2) == 5);
-    print(sumDouble(2, 2) == 8);
+    print("sumDouble")
+    print(sumDouble(1, 2) == 3)
+    print(sumDouble(3, 2) == 5)
+    print(sumDouble(2, 2) == 8)
 
-    print("close10");
-    print(close10(8, 13) == 8);
-    print(close10(13, 8) == 8);
-    print(close10(13, 7) == 0);
+    print("close10")
+    print(close10(8, 13) == 8)
+    print(close10(13, 8) == 8)
+    print(close10(13, 7) == 0)
 
-    print("stringC");
-    print(stringC("Hello", 'e', 1, 3) == True);
-    print(stringC("Everyone", 'e', 1, 3) == True);
-    print(stringC("Heelele", 'e', 1, 3) == False);
+    print("stringC")
+    print(stringC("Hello", 'e', 1, 3) == True)
+    print(stringC("Everyone", 'e', 1, 3) == True)
+    print(stringC("Heelele", 'e', 1, 3) == False)
 
-    print("stringCLinq");
-    print(stringCLinq("Hello", 'e', 1, 3) == True);
-    print(stringCLinq("Everyone", 'e', 1, 3) == True);
-    print(stringCLinq("Heelele", 'e', 1, 3) == False);
+    print("lastDigit")
+    print(lastDigit(7, 17) == True)
+    print(lastDigit(6, 17) == False)
+    print(lastDigit(3, 113) == True)
 
-    print("lastDigit");
-    print(lastDigit(7, 17) == True);
-    print(lastDigit(6, 17) == False);
-    print(lastDigit(3, 113) == True);
+    print("endUp")
+    print(endUp("Hello", 3) == "HeLLO")
+    print(endUp("hi there", 3) == "hi thERE")
+    print(endUp("hi", 3) == "HI")
 
-    print("endUp");
-    print(endUp("Hello", 3) == "HeLLO");
-    print(endUp("hi there", 3) == "hi thERE");
-    print(endUp("hi", 3) == "HI");
-
-    print("everyNth");
-    print(everyNth("Miracle", 2) == "Mrce");
-    print(everyNth("abcdefg", 2) == "aceg");
-    print(everyNth("abcdefg", 3) == "adg");
+    print("everyNth")
+    print(everyNth("Miracle", 2) == "Mrce")
+    print(everyNth("abcdefg", 2) == "aceg")
+    print(everyNth("abcdefg", 3) == "adg")
 

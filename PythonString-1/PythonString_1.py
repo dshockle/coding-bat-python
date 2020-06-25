@@ -97,7 +97,7 @@ class PythonString_1(object):
         def deFront(df):
             sb = ""
             if len(df) > 0 and df[0] == 'a':
-                sb += str[0]
+                sb += df[0]
             if len(df) > 1 and df[1] == 'b':
                 sb += df[1]
             if len(df) > 2:
@@ -119,8 +119,8 @@ class PythonString_1(object):
         '''
         def startWord(sw1, sw2):
             mlen = min(len(sw1), len(sw2))
-            if str[1:mlen] == word[1:mlen]:
-                return str[:mlen]
+            if sw1[1:mlen] == sw2[1:mlen]:
+                return sw1[:mlen]
             else:
                 return ""
 
@@ -171,51 +171,50 @@ class PythonString_1(object):
         
 
 
-            print("seeColor")
-            print(seeColor("redxx") == "red")
-            print(seeColor("xxred") == "")
-            print(seeColor("blueTimes") == "blue")
+        print("seeColor")
+        print(seeColor("redxx") == "red")
+        print(seeColor("xxred") == "")
+        print(seeColor("blueTimes") == "blue")
     
-            print("frontAgain")
-            print(frontAgain("edited") == True)
-            print(frontAgain("edit") == False)
-            print(frontAgain("ed") == True)
+        print("frontAgain")
+        print(frontAgain("edited") == True)
+        print(frontAgain("edit") == False)
+        print(frontAgain("ed") == True)
 
-            print("minCat")
-            print(minCat("Hello", "Hi") == "loHi")
-            print(minCat("Hello", "java") == "ellojava")
-            print(minCat("java", "Hello") == "javaello")
+        print("minCat")
+        print(minCat("Hello", "Hi") == "loHi")
+        print(minCat("Hello", "java") == "ellojava")
+        print(minCat("java", "Hello") == "javaello")
 
-            print("extraFront")
-            print(extraFront("Hello", 3) == "HelHelHel")
-            print(extraFront("ab", 2) == "abab")
-            print(extraFront("H", 3) == "HHH")
+        print("extraFront")
+        print(extraFront("Hello", 3) == "HelHelHel")
+        print(extraFront("ab", 2) == "abab")
+        print(extraFront("H", 3) == "HHH")
 
-            print("without2")
-            print(without2("HelloHe") == "lloHe")
-            print(without2("HelloHi") == "HelloHi")
-            print(without2("") == "")
-            print(without2(null) == "")
-            print(without2("H") == "H")
-            print(without2("Hi") == "")
+        print("without2")
+        print(without2("HelloHe") == "lloHe")
+        print(without2("HelloHi") == "HelloHi")
+        print(without2("") == "")
+        print(without2("H") == "H")
+        print(without2("Hi") == "")
 
-            print("deFront")
-            print(deFront("Hello") == "llo")
-            print(deFront("java") == "va")
-            print(deFront("away") == "aay")
+        print("deFront")
+        print(deFront("Hello") == "llo")
+        print(deFront("java") == "va")
+        print(deFront("away") == "aay")
 
-            print("startWord")
-            print(startWord("hippo", "hi") == "hi")
-            print(startWord("hippo", "xip") == "hip")
-            print(startWord("hippo", "z") == "h")
+        print("startWord")
+        print(startWord("hippo", "hi") == "hi")
+        print(startWord("hippo", "xip") == "hip")
+        print(startWord("hippo", "z") == "h")
 
-            print("withoutX")
-            print(withoutX("xHix") == "Hi")
-            print(withoutX("xHi") == "Hi")
-            print(withoutX("Hxix") == "Hxi")
+        print("withoutX")
+        print(withoutX("xHix") == "Hi")
+        print(withoutX("xHi") == "Hi")
+        print(withoutX("Hxix") == "Hxi")
 
-            print("withoutX2")
-            print(withoutX2("xHi") == "Hi")
-            print(withoutX2("Hxi") == "Hi")
-            print(withoutX2("Hi") == "Hi")
+        print("withoutX2")
+        print(withoutX2("xHi") == "Hi")
+        print(withoutX2("Hxi") == "Hi")
+        print(withoutX2("Hi") == "Hi")
 
