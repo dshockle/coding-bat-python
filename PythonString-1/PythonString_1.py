@@ -78,8 +78,8 @@ class PythonString_1(object):
         '''
         def without2(wo2):
             if len(wo2) < 2:
-                return str
-            elif wo2[:2] == wo2[2:]:
+                return wo2
+            elif wo2[:2] == wo2[-2:]:
                 return wo2[2:]
             else:
                 return wo2
@@ -101,7 +101,7 @@ class PythonString_1(object):
             if len(df) > 1 and df[1] == 'b':
                 sb += df[1]
             if len(df) > 2:
-                sb += df[:2]
+                sb += df[2:]
             return sb
         
 
@@ -137,14 +137,14 @@ class PythonString_1(object):
         
             wxResult = ""
 
-            if len(wx) > 0 and wx[0] != 'x':
+            if len(wx) > 0 and wx.strip().lower()[0] != 'x':
                 wxResult +=(wx[0])
 
-            if len(wx) > 2:
-                wxResult += wx[1:len(wx)-2]
+            if len(wx.strip()) > 2:
+                wxResult += wx[1:-1]
 
-            if len(wx) > 1 and wx[len(wx)-1] != 'x':
-                wxResult += wx[len(wx)-1]
+            if len(wx) > 1 and wx.strip().lower()[-1] != 'x':
+                wxResult += wx[-1]
 
             return wxResult
         
@@ -160,13 +160,9 @@ class PythonString_1(object):
         '''
         def withoutX2(wx2):
             wx2Result = ""
-            slen = len(wx2)
-            if slen > 0 and wx2[0] != 'x':
-                wx2Result += wx2[0]
-            if slen > 1 and wx2[1] != 'x':
-                wx2Result += wx2[1]
-            if slen > 2:
-                wx2Result += wx2[:2]
+            wx2Result += wx2.strip()[:2].replace('x', '').replace('X', '')
+            if len(wx2.strip()) > 2:
+                wx2Result += wx2[2:]
             return wx2Result
         
 
@@ -175,7 +171,7 @@ class PythonString_1(object):
         print(seeColor("redxx") == "red")
         print(seeColor("xxred") == "")
         print(seeColor("blueTimes") == "blue")
-    
+        
         print("frontAgain")
         print(frontAgain("edited") == True)
         print(frontAgain("edit") == False)
